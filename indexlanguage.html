@@ -58,15 +58,34 @@
       cursor: pointer;
     }
   
-    .btnmodel
-    {
-      width: 35%;
-      padding: 5px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-     background-color: #ccc;
-      color:red;
+   /* Default styles for .btnmodel */
+.btnmodel {
+    width: 35%;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    color: red;
+}
+
+/* Media query for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+    .btnmodel {
+        width: 50%; /* Adjust width for smaller screens */
+        padding: 8px; /* Increase padding for better touch targets */
+        font-size: 16px; /* Adjust font size */
     }
+}
+
+/* Media query for screens smaller than 480px */
+@media only screen and (max-width: 480px) {
+    .btnmodel {
+        width: 70%; /* Further adjust width for very small screens */
+        padding: 10px; /* Increase padding even more */
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
     .btn{
       color: #1B1464;
     }
@@ -84,7 +103,7 @@
   </div>
  
   <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை (EMI) கால்குலேட்டர்" data-english="Equal Monthly Installment (EMI) Calculator">சமமான மாதாந்திர தவணை (EMI) கால்குலேட்டர்</h1>
-  <div class="fields-container container-lg">
+  <div class="fields-container container-md  ">
    
     <div class="fields-section">
      
