@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener("DOMContentLoaded", function () {
    
     const tamilBtn = document.getElementById("tamilBtn");
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-  'use strict';
+ 
 
 let calculateButton = document.getElementById("calBtn");
 let monthlyEMI = document.getElementById("monthlyEmi");
@@ -77,7 +79,10 @@ function calculateEMI(event) {
     function printMonthsAfter(startMonth = currentMonth, startYear = currentYear, durationMonths = months) {
         let month = startMonth;
         let year = startYear;
-        const monthNames = ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'];
+        const monthNames = setLanguage("tamil") === 'tamil' ? 
+        ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'] :
+        ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        // const monthNames =['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'];
         const monthData = [];
         for (let i = 1; i <= durationMonths; i++) {
             const monthName = monthNames[month];
@@ -141,11 +146,11 @@ function calculateEMI(event) {
             interest: interestForMonth.toFixed(2),
             balance: remainingPrincipal.toFixed(2)
         });
-
+console.log(amortizationSchedule);
         balanceArray.push(remainingPrincipal.toFixed(2));
         interestArray.push(interestForMonth.toFixed(2));
         principalArray.push(principalForMonth.toFixed(2));
-        taxArray.push(taxMonthly*month.toFixed(2));
+        taxArray.push(taxMonthly.toFixed(2));
 
         totalInterest.textContent = totalInterestPaid.toFixed(2);
     }
@@ -171,7 +176,6 @@ function calculateEMI(event) {
 //               balance: parseFloat(balanceArray[i])
 //           });// Ensure that there are no multiple charts
 
-
 anychart.onDocumentReady(function () {
     // Create a Cartesian chart
     let chart = anychart.cartesian();
@@ -196,7 +200,7 @@ anychart.onDocumentReady(function () {
     let balanceData = dataSet.mapAs({ x: 'x', value: 'balance' });
 
     // Create column series for tax, interest, and principal data
-    chart.column(taxData).name('Taxes & Fees').color('#a8c0ff');
+    chart.column(taxData).name('Taxes ').color('#a8c0ff');
     chart.column(interestData).name('Interest').color('#668cff');
     chart.column(principalData).name('Principal').color('#002080');
 

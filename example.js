@@ -1,25 +1,47 @@
+'use strict';
+
 document.addEventListener("DOMContentLoaded", function () {
+
     const tamilBtn = document.getElementById("tamilBtn");
     const englishBtn = document.getElementById("englishBtn");
     const btnRestart = document.getElementById("restartButton");
-    const calculateButton = document.getElementById("calBtn");
 
     // Set the initial color of both buttons to white
     tamilBtn.style.backgroundColor = 'white';
     englishBtn.style.backgroundColor = 'white';
+    btnRestart.style.backgroundColor = 'white';
+
+    let currentLanguage = "tamil"; // Default language
 
     // Add click event listener to tamilBtn
     tamilBtn.addEventListener("click", function () {
         setLanguage("tamil");
+
+        // Change tamilBtn's background color to green and englishBtn to white
         tamilBtn.style.backgroundColor = 'green';
         englishBtn.style.backgroundColor = 'white';
+        btnRestart.style.backgroundColor = 'white';
+
+        currentLanguage = "tamil";
     });
 
     // Add click event listener to englishBtn
     englishBtn.addEventListener("click", function () {
         setLanguage("english");
+
+        // Change englishBtn's background color to green and tamilBtn to white
         englishBtn.style.backgroundColor = 'green';
         tamilBtn.style.backgroundColor = 'white';
+        btnRestart.style.backgroundColor = 'white';
+
+        currentLanguage = "english";
+    });
+
+    btnRestart.addEventListener("click", function () {
+        btnRestart.style.backgroundColor = 'green';
+        englishBtn.style.backgroundColor = 'white';
+        tamilBtn.style.backgroundColor = 'white';
+        location.reload();
     });
 
     function setLanguage(language) {
@@ -28,6 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
             element.textContent = element.getAttribute(`data-${language}`);
         });
     }
+
+    let calculateButton = document.getElementById("calBtn");
+    let monthlyEMI = document.getElementById("monthlyEmi");
+    let loanAmount = document.getElementById("loanAmount");
+    let advancePercentage = document.getElementById("advance");
+    let totalInterest = document.getElementById("totalInterest");
+    let taxCalculate = document.getElementById("taxid");
+    let totalTax = document.getElementById("totalTax");
+    let AnnuvalTotalEmi = document.getElementById("annuvaltotalemi");
+    let TotalOfEmi = document.getElementById("totalofemi");
 
     function calculateEMI(event) {
         event.preventDefault();
@@ -38,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let months = parseInt(document.getElementById("month").value) || 0;
         let currentYear = parseInt(document.getElementById("currentYear").value) || new Date().getFullYear();
         let tax = parseFloat(document.getElementById("tax").value) || 0;
-
         let radio1 = document.getElementById('radio1');
         let radio2 = document.getElementById('radio2');
         let radio3 = document.getElementById('radio3');
@@ -50,7 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
         function printMonthsAfter(startMonth = currentMonth, startYear = currentYear, durationMonths = months) {
             let month = startMonth;
             let year = startYear;
-            const monthNames = ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'];
+            const monthNames = currentLanguage === 'tamil' ?
+                ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'] :
+                ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
             const monthData = [];
             for (let i = 1; i <= durationMonths; i++) {
                 const monthName = monthNames[month];
@@ -65,26 +99,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const monthData = printMonthsAfter();
+
         let loanAmountCalculate = principal - paymentInAdvance;
-        document.getElementById("loanAmount").textContent = loanAmountCalculate.toFixed(2);
+        loanAmount.textContent = loanAmountCalculate.toFixed(2);
         let advancePercentageCalculate = (paymentInAdvance * 100) / principal;
-        document.getElementById("advance").textContent = advancePercentageCalculate.toFixed(2) + " % ";
+        advancePercentage.textContent = advancePercentageCalculate.toFixed(2) + " % ";
         let monthlyInterestRate = interestRate / 12 / 100;
 
         let taxMonthly = tax / 12;
-        document.getElementById("taxid").textContent = taxMonthly.toFixed(2);
+        taxCalculate.textContent = taxMonthly.toFixed(2);
+
         let totalTaxAmount = taxMonthly * months;
-        document.getElementById("totalTax").textContent = totalTaxAmount.toFixed(2);
+        totalTax.textContent = totalTaxAmount.toFixed(2);
 
         let EMI = (loanAmountCalculate * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months)) /
             (Math.pow(1 + monthlyInterestRate, months) - 1);
+
         let monthTotalEMI = EMI + taxMonthly;
 
         function checkHomeLoan() {
             if ((radio1.checked && radio3.checked) || (radio2.checked && radio4.checked)) {
-                document.getElementById("monthlyEmi").textContent = monthTotalEMI.toFixed(2);
+                monthlyEMI.textContent = monthTotalEMI.toFixed(2);
             } else {
-                document.getElementById("monthlyEmi").textContent = EMI.toFixed(2);
+                monthlyEMI.textContent = EMI.toFixed(2);
             }
         }
 
@@ -114,83 +151,101 @@ document.addEventListener("DOMContentLoaded", function () {
             balanceArray.push(remainingPrincipal.toFixed(2));
             interestArray.push(interestForMonth.toFixed(2));
             principalArray.push(principalForMonth.toFixed(2));
-            taxArray.push(taxMonthly * month.toFixed(2));
+            taxArray.push(taxMonthly.toFixed(2));
 
-            document.getElementById("totalInterest").textContent = totalInterestPaid.toFixed(2);
+            totalInterest.textContent = totalInterestPaid.toFixed(2);
         }
 
         let annuval = monthTotalEMI * 12;
-        document.getElementById("annuvaltotalemi").textContent = annuval.toFixed(2);
+        AnnuvalTotalEmi.textContent = annuval.toFixed(2);
 
         let wholeEMI = monthTotalEMI * months;
-        document.getElementById("totalofemi").textContent = wholeEMI.toFixed(2);
-
-        if (typeof anychart !== 'undefined' && anychart.charts) {
-            if (anychart.charts[0]) {
-                anychart.charts[0].dispose();
-            }
-        }
+        TotalOfEmi.textContent = wholeEMI.toFixed(2);
 
         anychart.onDocumentReady(function () {
+            // Create a Cartesian chart
             let chart = anychart.cartesian();
 
+            // Prepare the data
             let data = [];
             for (let i = 0; i < months; i++) {
                 data.push({
-                    x: monthData[i],
-                    tax: parseFloat(taxArray[i]),
-                    interest: parseFloat(interestArray[i]),
-                    principal: parseFloat(principalArray[i]),
-                    balance: parseFloat(balanceArray[i])
+                    x: monthData[i],          // X-axis data (months)
+                    tax: parseFloat(taxArray[i]),           // Taxes & Fees data
+                    interest: parseFloat(interestArray[i]), // Interest data
+                    principal: parseFloat(principalArray[i]), // Principal data
+                    balance: parseFloat(balanceArray[i])    // Balance data
                 });
             }
 
+            // Create data sets
             let dataSet = anychart.data.set(data);
             let taxData = dataSet.mapAs({ x: 'x', value: 'tax' });
             let interestData = dataSet.mapAs({ x: 'x', value: 'interest' });
             let principalData = dataSet.mapAs({ x: 'x', value: 'principal' });
             let balanceData = dataSet.mapAs({ x: 'x', value: 'balance' });
 
-            chart.column(taxData).name('Taxes & Fees').color('#a8c0ff');
+            // Create column series for tax, interest, and principal data
+            chart.column(taxData).name('Taxes').color('#a8c0ff');
             chart.column(interestData).name('Interest').color('#668cff');
             chart.column(principalData).name('Principal').color('#002080');
 
+            // Create line series for balance data
             let balanceScale = anychart.scales.linear();
-            let lineSeries = chart.line(balanceData);
-            lineSeries.yScale(balanceScale);
-            lineSeries.name('Balance').color('rgba(0, 0, 0, 1)').markers(true);
+    let lineSeries = chart.line(balanceData);
+    lineSeries.yScale(balanceScale);
+    lineSeries.name('Balance').color('rgba(0, 0, 0, 1)');
 
+    // Customize markers
+    lineSeries.markers(true); // Enable markers
+    lineSeries.markers()
+        .type('circle') // Set marker type to circle
+        .size(1) // Set marker size
+        .fill('#000000') // Set marker fill color
+        .stroke('2 #000000');
+            // Configure the Y-axis to support stacking
             chart.yScale().stackMode('value');
 
+            // Configure the secondary Y-axis for line series (balance)
             let balanceAxis = chart.yAxis(1);
             balanceAxis.orientation('right');
             balanceAxis.scale(balanceScale);
             balanceAxis.title('Balance');
 
+            // Configure the X-axis
             chart.xAxis().title('Year');
             chart.xAxis().labels().rotation(-45);
             chart.xAxis().labels().padding([0, 5, 5, 5]);
-            chart.xAxis().labels().format(function() {
+            chart.xAxis().labels().format(function () {
                 return monthData[this.index];
             });
 
+            // Configure the primary Y-axis for stacked columns
             chart.yAxis().title('Payments');
             chart.yAxis().labels().format(function () {
                 return this.value / 1000 + 'k';
             });
 
-            chart.tooltip().format('{%seriesName}: ₹{%value}');
+            // Configure the tooltip
+            chart.tooltip().format(function () {
+                // 'this.index' gives the index of the hovered data point
+                const index = this.index;
+                return `Month: ${monthData[index]}\n
+                       Tax:₹ ${taxArray[index]}\n
+                       Interest:₹ ${interestArray[index]}\n
+                        principal:₹ ${principalArray[index]}\n
+                        Balance Remaining: ₹ ${balanceArray[index]}`;
+            });
 
+            // Enable the legend
             chart.legend().enabled(true).position('top');
 
-            chart.container('container');
+            // Set the container and draw the chart
+            chart.container('chart-container');
             chart.draw();
         });
+
     }
 
-    calculateButton.addEventListener('click', calculateEMI);
-
-    btnRestart.addEventListener('click', function() {
-        location.reload();
-    });
+    calculateButton.addEventListener("click", calculateEMI);
 });

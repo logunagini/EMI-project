@@ -68,14 +68,7 @@
     color: red;
 }
 
-/* Media query for screens smaller than 768px */
-@media only screen and (max-width: 768px) {
-    .btnmodel {
-        width: 50%; /* Adjust width for smaller screens */
-        padding: 8px; /* Increase padding for better touch targets */
-        font-size: 16px; /* Adjust font size */
-    }
-}
+
 
 /* Media query for screens smaller than 480px */
 @media only screen and (max-width: 480px) {
@@ -95,15 +88,18 @@
 
   background-color: transparent;
 }
+
+
   </style>
 </head>
 <body>
-  <div id="container"  class="header" style="width: 100%; height: 300px;">
+ 
+  <div id="chart-container"  class="header" style="width: 100%; height: 300px;">
     <!-- <img src="Screenshot 2024-08-10 025145.png" width="100%" height="100%"> -->
   </div>
  
-  <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை (EMI) கால்குலேட்டர்" data-english="Equal Monthly Installment (EMI) Calculator">சமமான மாதாந்திர தவணை (EMI) கால்குலேட்டர்</h1>
-  <div class="fields-container container-md  ">
+  <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை கணக்கீடு" data-english="Equal Monthly Installment Calculator">சமமான மாதாந்திர தவணை கணக்கீடு</h1>
+  <div class="fields-container container-sm  ">
    
     <div class="fields-section">
      
@@ -116,23 +112,23 @@
       <h2 data-tamil="உங்கள் தரவை உள்ளிடவும்" data-english="Enter Your Data!!!">உங்கள் தரவை உள்ளிடவும்</h2>
       <div class="form-group"> 
         <label for="Principal" class="form-label" data-tamil="அசல் (ரூ):" data-english="Principal:">அசல் (ரூ):</label>
-        <input type="text" id="Principal" class="form-control" required>
+        <input type="number" id="Principal" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="paymentInAdvance" class="form-label" data-tamil="முன் பணம் (ரூ) :" data-english="Advance Payment (₹):">முன் பணம் (ரூ) :</label>
-        <input type="text" id="paymentInAdvance" class="form-control" required>
+        <input type="number" id="paymentInAdvance" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="InterestRate" class="form-label" data-tamil="வட்டி விகிதம் (%) (ஆண்டு) :" data-english="Interest Rate (%) (Annual):">வட்டி விகிதம் (%) (ஆண்டு) :</label>
-        <input type="text" id="InterestRate" class="form-control" required>
+        <input type="number" id="InterestRate" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="month" class="form-label" data-tamil="மாதங்கள் :" data-english="Months:">மாதங்கள் :</label>
-        <input type="text" id="month" class="form-control" required>
+        <input type="number" id="month" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="currentYear" class="form-label" data-tamil="தொடங்கும் ஆண்டு :" data-english="Start Year:">தொடங்கும் ஆண்டு :</label>
-        <input type="text" id="currentYear" class="form-control" required>
+        <input type="number" id="currentYear" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="currentMonth" class="form-label" data-tamil="தொடங்கும் மாதம் :" data-english="Start Month:">தொடங்கும் மாதம் :</label>
@@ -154,7 +150,7 @@
       </div>
       <div class="form-group">
         <label for="tax" class="form-label" data-tamil="வரி (ஆண்டு) :" data-english="Tax (Annual):">வரி (ஆண்டு) :</label>
-        <input type="text" id="tax" class="form-control" required>
+        <input type="number" id="tax" class="form-control" required>
       </div>
       <div> 
         <div data-tamil="வீட்டு கடன்:" data-english="Home Loan:">வீட்டு கடன்:</div>
@@ -185,7 +181,7 @@
     </div> 
     </div>
     <div class="fields-section">
-      <div class="text-start my-3"> <button id="englishBtn" class="btnmodel">English</button></div>
+      <div class="number-start my-3"> <button id="englishBtn" class="btnmodel">English</button></div>
       <h2 data-tamil="உங்கள் தரவு இங்கே காணவும்" data-english= "your datas here!!!">உங்கள் தரவு இங்கே காணவும்</h2>
       <div class="form-group">
         <label class="form-label" data-tamil="கடன் தொகை (ரூ) :" data-english="Loan Amount (₹):">கடன் தொகை (ரூ) :</label>
@@ -223,6 +219,9 @@
       <div id="PrincipalAmount"></div>
     </div>
   </div>
-  <script src="scriptlanguage.js"></script>
+  
+
+ 
+  <script src="example.js"></script>
 </body>
 </html>
