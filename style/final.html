@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .button-group {
+            margin-bottom: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid #000;
+            background-color: white;
+            cursor: pointer;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            margin: 10px 0;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #000;
+        }
+        .signup-button, .signin-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            background-color: white;
+            cursor: pointer;
+        }
+        .g_id_signin {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="auth-page">
+        <div class="button-group">
+            <button id="signup-button" onclick="showSignUp()">Sign Up</button>
+            <button id="signin-button" onclick="showSignIn()">Sign In</button>
+        </div>
+        
+        <!-- Sign Up Form -->
+        <div id="signup-form" style="display: none;">
+            <h1>Sign Up</h1>
+            <input type="email" id="signup-email" class="input-field" placeholder="abc@gmail.com">
+            <input type="password" id="signup-password" class="input-field" placeholder="Password">
+            <button class="signup-button" onclick="handleSignUp()">Sign Up</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signin-form" style="display: none;">
+            <h1>Sign In</h1>
+            <div class="g_id_signin"></div>
+        </div>
+    </div>
+
+    <div class="container" id="home-page" style="display: none;">
+        <h1>Home</h1>
+        <div id="email-display"></div>
+        <button class="signup-button" id="signout-button" onclick="signOut()" disabled>Sign Out</button>
+    </div>
+
+    <script>
+        let responsePayload;
+
+        function handleCredentialResponse(response) {
+            responsePayload = decodeJwtResponse(response.credential);
+
+            document.getElementById('auth-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('email-display').textContent = "Signed in as: " + responsePayload.email;
+            document.getElementById('signout-button').disabled = false;
+        }
+
+        function decodeJwtResponse(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        function signOut() {
+            google.accounts.id.revoke(responsePayload.email, done => {
+                console.log('User signed out.');
+                document.getElementById('auth-page').style.display = 'block';
+                document.getElementById('home-page').style.display = 'none';
+                document.getElementById('email-display').textContent = "";
+                document.getElementById('signout-button').disabled = true;
+
+                showSignIn();
+            });
+        }
+
+        function showSignUp() {
+            document.getElementById('signup-form').style.display = 'block';
+            document.getElementById('signin-form').style.display = 'none';
+        }
+
+        function showSignIn() {
+            document.getElementById('signin-form').style.display = 'block';
+            document.getElementById('signup-form').style.display = 'none';
+        }
+
+        function handleSignUp() {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            if (email && password) {
+                sessionStorage.setItem('signupEmail', email);
+                sessionStorage.setItem('signupPassword', password);
+
+                alert('Sign up successful! You can now sign in.');
+                document.getElementById('signup-email').value = '';
+                document.getElementById('signup-password').value = '';
+
+                showSignIn();
+            } else {
+                alert('Please enter both email and password.');
+            }
+        }
+
+        function handleSignIn() {
+            const email = document.getElementById('signin-email').value;
+            const password = document.getElementById('signin-password').value;
+
+            const storedEmail = sessionStorage.getItem('signupEmail');
+            const storedPassword = sessionStorage.getItem('signupPassword');
+
+            if (email === storedEmail && password === storedPassword) {
+                alert('Sign in successful!');
+                document.getElementById('signin-email').value = '';
+                document.getElementById('signin-password').value = '';
+                document.getElementById('auth-page').style.display = 'none';
+                document.getElementById('home-page').style.display = 'block';
+                document.getElementById('email-display').textContent = `Signed in as: ${email}`;
+                document.getElementById('signout-button').disabled = false;
+            } else {
+                alert('Incorrect email or password.');
+            }
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: '205468551568-easqmig20adbo9ltqikqf5cl91566koc.apps.googleusercontent.com', // Replace with your Client ID
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.querySelector(".g_id_signin"),
+                { theme: "outline", size: "large" }
+            );
+            google.accounts.id.prompt();
+        };
+    </script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>
