@@ -27,19 +27,15 @@
   </div>
 
   <script>
-    // Set OTP expiry time (1 minute from now)
-    const otpExpiryTime = Date.now() + 60 * 1000;
-    sessionStorage.setItem('otpExpiryTime', otpExpiryTime);
-    sessionStorage.setItem('generatedOtp', '123456'); // Replace with actual generated OTP
+    let otpExpiryTime = sessionStorage.getItem('otpExpiryTime');
+    let generatedOtp = sessionStorage.getItem('generatedOtp');
 
     document.getElementById('verify-btn').addEventListener('click', function() {
       const enteredOtp = document.getElementById('otp-input').value;
-      const storedExpiryTime = sessionStorage.getItem('otpExpiryTime');
-      const storedOtp = sessionStorage.getItem('generatedOtp');
 
-      if (Date.now() > storedExpiryTime) {
+      if (Date.now() > otpExpiryTime) {
         document.getElementById('verification-message').innerHTML = '<div class="alert alert-danger">OTP has expired. Please request a new one.</div>';
-      } else if (enteredOtp === storedOtp) {
+      } else if (enteredOtp == generatedOtp) {
         document.getElementById('verification-message').innerHTML = '<div class="alert alert-success">OTP verified successfully!</div>';
         window.location.href = 'set_password.html';
       } else {
@@ -50,11 +46,10 @@
     function startTimer() {
       const timerElement = document.getElementById('timer');
 
-      const interval = setInterval(function() {
-        const timeLeft = otpExpiryTime - Date.now();
+      setInterval(function() {
+        const timeLeft =  otpExpiryTime - Date.now();
 
         if (timeLeft <= 0) {
-          clearInterval(interval);
           timerElement.innerHTML = "Expired";
         } else {
           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));

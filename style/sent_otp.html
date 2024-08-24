@@ -29,9 +29,7 @@
         </div>
         <br>
         <div class="text-center"><strong>Or</strong></div><br>
-        <!-- <div class="mb-3">
-          <input type="name" class="form-control" id="email" placeholder="Enter your name" required>
-        </div><br> -->
+      
         <form id="otp-form">
       
           <div class="mb-3">
@@ -95,7 +93,7 @@
         .then(function(response) {
           alert('OTP sent successfully!', 'success');
           sessionStorage.setItem('generatedOtp', generatedOtp);
-          sessionStorage.setItem('otpExpiryTime', Date.now() + 5 * 60 * 1000); // 5 minutes
+          sessionStorage.setItem('otpExpiryTime', Date.now() + 60 * 1000); // 5 minutes
           window.location.href = 'verify_otp.html';
         }, function(error) {
           alert('Failed to send OTP. Please try again.', 'danger');
