@@ -48,6 +48,8 @@
     function handleCredentialResponse(response) {
       const responsePayload = decodeJwtResponse(response.credential);
       document.getElementById('email-display').textContent = "Signed in as: " + responsePayload.email;
+      window.location.href = 'indexlanguage.html';
+
     }
 
     function decodeJwtResponse(token) {
@@ -67,8 +69,10 @@
       google.accounts.id.renderButton(
           document.querySelector(".g_id_signin"),
           { theme: "outline", size: "large", width: "100%" }
+        
       );
       google.accounts.id.prompt();
+   
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
