@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    <p>You are signed in as <span id="userName"></span>.</p>
+    <p>Your email: <span id="userEmail"></span></p>
+
+    
+    <br><br>
+    <button onclick="signOut()">Sign Out</button>
+    
+    <script>
+        // This function populates the dashboard with the user's information
+        function populateDashboard() {
+            const profile = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+            document.getElementById('userName').textContent = profile.getName();
+            document.getElementById('userEmail').textContent = profile.getEmail();
+          
+        }
+
+        // Load the user's info once the page is fully loaded
+        window.onload = function() {
+            if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
+                populateDashboard();
+            } else {
+                // If the user is not signed in, redirect to sign-in page
+                window.location.href = 'signin.html';
+            }
+        }
+    </script>
+</body>
+</html>
