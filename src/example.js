@@ -1,55 +1,94 @@
 'use strict';
+document.addEventListener("DOMContentLoaded", function() {
+   
+    // Function to set the language
+    function setLanguage(language) {
+        // Select all elements that have 'data-tamil' and 'data-english' attributes
+        const elements = document.querySelectorAll('[data-tamil], [data-english]');
+        
+        // Loop through each element and set its text content based on the selected language
+        elements.forEach((el) => {
+            el.textContent = el.getAttribute(`data-${language}`);
+        });
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const tamilBtn = document.getElementById("tamilBtn");
-    const englishBtn = document.getElementById("englishBtn");
+    // Get references to the language buttons
+    const englishOption = document.getElementById('english-option');
+    const tamilOption = document.getElementById('tamil-option');
     const btnRestart = document.getElementById("restartButton");
 
-    // Set the initial color of both buttons to white
-    tamilBtn.style.backgroundColor = 'white';
-    englishBtn.style.backgroundColor = 'white';
-    btnRestart.style.backgroundColor = 'white';
-
-    let currentLanguage = "tamil"; // Default language
-
-    // Add click event listener to tamilBtn
-    tamilBtn.addEventListener("click", function () {
-        setLanguage("tamil");
-
-        // Change tamilBtn's background color to green and englishBtn to white
-        tamilBtn.style.backgroundColor = 'green';
-        englishBtn.style.backgroundColor = 'white';
-        btnRestart.style.backgroundColor = 'white';
-
-        currentLanguage = "tamil";
+    // Add click event listeners to the buttons
+    let currentLang = "tamil";
+    englishOption.addEventListener('click', function() {
+        setLanguage('english');
+        currentLang = "english";
     });
 
-    // Add click event listener to englishBtn
-    englishBtn.addEventListener("click", function () {
-        setLanguage("english");
-
-        // Change englishBtn's background color to green and tamilBtn to white
-        englishBtn.style.backgroundColor = 'green';
-        tamilBtn.style.backgroundColor = 'white';
-        btnRestart.style.backgroundColor = 'white';
-
-        currentLanguage = "english";
+    tamilOption.addEventListener('click', function() {
+        setLanguage('tamil');
+        currentLang = "tamil";
     });
-
-    btnRestart.addEventListener("click", function () {
-        btnRestart.style.backgroundColor = 'green';
-        englishBtn.style.backgroundColor = 'white';
-        tamilBtn.style.backgroundColor = 'white';
+        btnRestart.addEventListener("click", function () {
+        // btnRestart.style.backgroundColor = 'green';
+        // englishBtn.style.backgroundColor = 'white';
+        // tamilBtn.style.backgroundColor = 'white';
         location.reload();
     });
 
-    function setLanguage(language) {
-        const elements = document.querySelectorAll("[data-tamil], [data-english]");
-        elements.forEach(element => {
-            element.textContent = element.getAttribute(`data-${language}`);
-        });
-    }
+
+    
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+
+//     const tamilBtn = document.getElementById("tamilBtn");
+//     const englishBtn = document.getElementById("englishBtn");
+//     const btnRestart = document.getElementById("restartButton");
+
+//     // Set the initial color of both buttons to white
+//     tamilBtn.style.backgroundColor = 'white';
+//     englishBtn.style.backgroundColor = 'white';
+//     btnRestart.style.backgroundColor = 'white';
+
+//     let currentLanguage = "tamil"; // Default language
+
+//     // Add click event listener to tamilBtn
+//     tamilBtn.addEventListener("click", function () {
+//         setLanguage("tamil");
+
+//         // Change tamilBtn's background color to green and englishBtn to white
+//         tamilBtn.style.backgroundColor = 'green';
+//         englishBtn.style.backgroundColor = 'white';
+//         btnRestart.style.backgroundColor = 'white';
+
+//         currentLanguage = "english";
+//     });
+
+//     // Add click event listener to englishBtn
+//     englishBtn.addEventListener("click", function () {
+//         setLanguage("english");
+
+//         // Change englishBtn's background color to green and tamilBtn to white
+//         englishBtn.style.backgroundColor = 'green';
+//         tamilBtn.style.backgroundColor = 'white';
+//         btnRestart.style.backgroundColor = 'white';
+
+//         currentLanguage = "english";
+//     });
+
+//     btnRestart.addEventListener("click", function () {
+//         btnRestart.style.backgroundColor = 'green';
+//         englishBtn.style.backgroundColor = 'white';
+//         tamilBtn.style.backgroundColor = 'white';
+//         location.reload();
+//     });
+
+//     function setLanguage(language) {
+//         const elements = document.querySelectorAll("[data-tamil], [data-english]");
+//         elements.forEach(element => {
+//             element.textContent = element.getAttribute(`data-${language}`);
+//         });
+//     }
 
     let calculateButton = document.getElementById("calBtn");
     let monthlyEMI = document.getElementById("monthlyEmi");
@@ -81,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function printMonthsAfter(startMonth = currentMonth, startYear = currentYear, durationMonths = months) {
             let month = startMonth;
             let year = startYear;
-            const monthNames = currentLanguage === 'tamil' ?
+            const monthNames = currentLang === 'tamil' ?
                 ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'] :
                 ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 

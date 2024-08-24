@@ -1,52 +1,63 @@
 'use strict';
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
    
-    const tamilBtn = document.getElementById("tamilBtn");
-    const englishBtn = document.getElementById("englishBtn");
-    const btnRestart = document.getElementById("restartButton");
+//     const tamilBtn = document.getElementById("tamilBtn");
+//     const englishBtn = document.getElementById("englishBtn");
+    // const btnRestart = document.getElementById("restartButton");
 
-    // Set the initial color of both buttons to white
-    tamilBtn.style.backgroundColor = 'white';
-    englishBtn.style.backgroundColor = 'white';
-    btnRestart.style.backgroundColor = 'white';
-    // Add click event listener to tamilBtn
-    tamilBtn.addEventListener("click", function () {
-        setLanguage("tamil");
+//     // Set the initial color of both buttons to white
+//     tamilBtn.style.backgroundColor = 'white';
+//     englishBtn.style.backgroundColor = 'white';
+//     btnRestart.style.backgroundColor = 'white';
+//     // Add click event listener to tamilBtn
+//     tamilBtn.addEventListener("click", function () {
+//         setLanguage("tamil");
 
-        // Change tamilBtn's background color to green and englishBtn to white
-        tamilBtn.style.backgroundColor = 'green';
-        englishBtn.style.backgroundColor = 'white';
-        btnRestart.style.backgroundColor = 'white';
-    });
+//         // Change tamilBtn's background color to green and englishBtn to white
+//         tamilBtn.style.backgroundColor = 'green';
+//         englishBtn.style.backgroundColor = 'white';
+//         btnRestart.style.backgroundColor = 'white';
+//     });
 
-    // Add click event listener to englishBtn
-    englishBtn.addEventListener("click", function () {
-        setLanguage("english");
+//     // Add click event listener to englishBtn
+//     englishBtn.addEventListener("click", function () {
+//         setLanguage("english");
 
-        // Change englishBtn's background color to green and tamilBtn to white
-        englishBtn.style.backgroundColor = 'green';
-        tamilBtn.style.backgroundColor = 'white';
-        btnRestart.style.backgroundColor = 'white';
-    });
-    btnRestart.addEventListener("click", function () {
+//         // Change englishBtn's background color to green and tamilBtn to white
+//         englishBtn.style.backgroundColor = 'green';
+//         tamilBtn.style.backgroundColor = 'white';
+//         btnRestart.style.backgroundColor = 'white';
+//     });
+    // btnRestart.addEventListener("click", function () {
      
 
-        btnRestart.style.backgroundColor = 'green';
-        englishBtn.style.backgroundColor = 'white';
-        tamilBtn.style.backgroundColor = 'white';
+    //     btnRestart.style.backgroundColor = 'green';
+    //     englishBtn.style.backgroundColor = 'white';
+    //     tamilBtn.style.backgroundColor = 'white';
         
-    });
+    // });
 
 
-    function setLanguage(language) {
-      const elements = document.querySelectorAll("[data-tamil], [data-english]");
-      elements.forEach(element => {
-        element.textContent = element.getAttribute(`data-${language}`);
-      });
-    }
+//     function setLanguage(language) {
+//       const elements = document.querySelectorAll("[data-tamil], [data-english]");
+//       elements.forEach(element => {
+//         element.textContent = element.getAttribute(`data-${language}`);
+//       });
+//     }
 
- 
+document.getElementById('english-option').addEventListener('click', () => {
+    document.querySelectorAll('data-tamil').forEach(el => el.style.display = 'block');
+    document.querySelectorAll('data-tamil').forEach(el => el.style.display = 'none');
+});
+
+document.getElementById('tamil-option').addEventListener('click', () => {
+    document.querySelectorAll('data-tamil').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('data-tamil').forEach(el => el.style.display = 'block');
+});
+
+// Initialize page with English content
+document.getElementById('english-option').click();
 
 let calculateButton = document.getElementById("calBtn");
 let monthlyEMI = document.getElementById("monthlyEmi");
@@ -314,8 +325,8 @@ anychart.onDocumentReady(function () {
 
     calculateButton.addEventListener('click', calculateEMI);
 
-    btnRestart.addEventListener('click', function() {
-        location.reload();
-    });
-});
+    // btnRestart.addEventListener('click', function() {
+    //     location.reload();
+    // });
+
 

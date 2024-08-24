@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: white;
+            padding: 20px 0;
+        }
+
+
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            color: #007bff;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #f4f4f9;
+        }
+
+        .accordion-button::after {
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .accordion-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            color: #000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .accordion-button:hover {
+            background-color: #e9ecef;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-body {
+            font-weight: normal;
+            background-color: #ffffff;
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+            border-top: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-item {
+            border-top: 1px solid #e9ecef;
+        }
+        .tamil-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Header with Language Toggle -->
+  <div class="header me-5 text-end">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle " type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Language
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item" href="#" id="english-option">English</a></li>
+            <li><a class="dropdown-item" href="#" id="tamil-option">தமிழ்</a></li>
+        </ul>
+    </div>
+</div>
+    <!-- FAQ Section -->
+    <div class="container text-center mt-5">
+        <h1 class="faq-title ">FAQs</h1>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="faq-section text-center">
+        <div class="container">
+            <div class="sub-title english-content">Equated Monthly Installment</div>
+            <div class="sub-title tamil-content">சமமான மாத தவணை</div>
+            <div class="main-title english-content">How does it work?</div>
+            <div class="main-title tamil-content">இது எப்படி செயல்படுகிறது?</div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <span class="english-content">What is EMI calculator?</span>
+                        <span class="tamil-content">EMI கால்குலேட்டர் என்பது என்ன?</span>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p  class="english-content" class="english-content">An EMI (Equated Monthly Installment) calculator is a tool used to calculate the fixed monthly
+                            payment (EMI) required to repay a loan over a specified period. The EMI includes both the
+                            principal amount and the interest on the loan.</p>
+                            <p class="tamil-content">EMI (சமமான மாத தவணை) கால்குலேட்டர் என்பது குறிப்பிட்ட காலகட்டத்தில் கடனை திருப்பி செலுத்த தேவையான நிலையான மாத தவணையை (EMI) கணக்கிட பயன்படுத்தப்படும் கருவியாகும். EMI யில் தலைமைத் தொகையும் கடனின் வட்டியையும் உள்ளடக்கியது.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      
+                        <span class="english-content">  Uses of an EMI Calculator?</span>
+                        <span class="tamil-content">EMI கணக்கீட்டின் பயன்கள்?</span>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="english-content">1. Loan Planning:<br>
+                            It helps borrowers plan their finances by giving them a clear understanding of the monthly installment they need to pay if they take out a loan.<br><br>
+                         2. Comparison of Loan Offers:<br>
+                         Borrowers can compare different loan offers from various lenders by calculating the EMI for each offer. This allows them to choose the most affordable option.<br><br>
+                        3. Determining Loan Affordability:<br>
+                        By calculating the EMI, borrowers can determine whether they can afford the loan given their current income and expenses.<br><br>
+                    4. Adjusting Loan Parameters:<br>
+                    Borrowers can experiment with different loan amounts, interest rates, and tenures to see how these factors affect their EMI. This can help in deciding on a loan that best fits their financial situation<br><br>
+                5.Financial Planning: <br>
+                Helps in planning long-term financial goals by understanding how much of their monthly income will be tied up in loan repayments.
+            </p>
+            <p class="tamil-content">1. கடன் திட்டமிடல்:<br>
+                கடன் வாங்குபவர்கள் கடனை வாங்கினால் அவர்கள் செலுத்த வேண்டிய மாதாந்திர தவணை பற்றிய தெளிவான புரிதலை வழங்குவதன் மூலம் அவர்களின் நிதியைத் திட்டமிட உதவுகிறது.<br><br>
+             2. கடன் சலுகைகளின் ஒப்பீடு:<br>
+             ஒவ்வொரு சலுகைக்கும் EMI கணக்கிடுவதன் மூலம் கடன் வாங்குபவர்கள் பல்வேறு கடன் வழங்குபவர்களிடமிருந்து வெவ்வேறு கடன் சலுகைகளை ஒப்பிடலாம். இது மிகவும் மலிவான விருப்பத்தைத் தேர்வுசெய்ய அனுமதிக்கிறது.<br><br>
+            3. கடன் வாங்கக்கூடிய தன்மையை தீர்மானித்தல்:<br>
+            EMIஐக் கணக்கிடுவதன் மூலம், கடன் வாங்குபவர்கள் தங்களின் தற்போதைய வருமானம் மற்றும் செலவுகளைக் கொண்டு கடனைத் தாங்க முடியுமா என்பதைத் தீர்மானிக்க முடியும்.<br><br>
+        4. கடன் அளவுருக்களை சரிசெய்தல்:<br>
+        கடன் வாங்குபவர்கள் வெவ்வேறு கடன் தொகைகள், வட்டி விகிதங்கள் மற்றும் தவணைக்காலம் ஆகியவற்றைப் பரிசோதித்து, இந்தக் காரணிகள் தங்கள் EMIஐ எவ்வாறு பாதிக்கிறது என்பதைப் பார்க்கலாம். இது அவர்களின் நிதி நிலைமைக்கு ஏற்ற கடனைத் தீர்மானிக்க உதவும்<br><br>
+    5.நிதி திட்டமிடல்: <br>
+    அவர்களின் மாத வருமானத்தில் எவ்வளவு கடன் திருப்பிச் செலுத்தப்படும் என்பதைப் புரிந்துகொள்வதன் மூலம் நீண்ட கால நிதி இலக்குகளைத் திட்டமிட உதவுகிறது.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+<span class="english-content">Benefits of Using an EMI Calculator?</span>
+<span class="tamil-content">EMI கணக்கீட்டைப் பயன்படுத்துவதன் நன்மைகள்?
+</span>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body"> 
+                    <p class="english-content">1. Quick and Easy Calculation:<br>
+
+                            The EMI calculator provides instant results, saving time and effort compared to manual calculations.<br><br>
+                            2. Accurate Estimations:<br>
+                            
+                            Ensures accurate calculations, reducing the risk of errors that can occur with manual computations.<br><br>
+                            3. Better Financial Management:<br>
+                            
+                            With a clear understanding of the EMI, borrowers can better manage their finances and avoid over-borrowing.<br><br>
+                           4. Transparency:<br>
+                            
+                            Provides transparency by showing how much of each payment goes toward interest and how much goes toward principal repayment.<br><br>
+                            5.Informed Decision-Making:<br>
+                            
+                            Helps borrowers make informed decisions about loan amounts, tenures, and interest rates, leading to more prudent financial choices.<br><br>
+                            6. Flexibility:<br>
+                            
+                            Allows users to adjust loan parameters to see the impact on EMI, helping them choose the best loan structure for their needs.</p>
+                            <p class="tamil-content">1. விரைவான மற்றும் எளிதான கணக்கீடு:<br>
+
+                                EMI கால்குலேட்டர் உடனடி முடிவுகளை வழங்குகிறது, கைமுறை கணக்கீடுகளுடன் ஒப்பிடும்போது நேரத்தையும் முயற்சியையும் மிச்சப்படுத்துகிறது.<br><br>
+                                2. துல்லியமான மதிப்பீடுகள்:<br>
+                                
+                                துல்லியமான கணக்கீடுகளை உறுதிசெய்கிறது, கைமுறை கணக்கீடுகளில் ஏற்படும் பிழைகளின் அபாயத்தைக் குறைக்கிறது.<br><br>
+                                3. சிறந்த நிதி மேலாண்மை:<br>
+                                
+                                EMI பற்றிய தெளிவான புரிதலுடன், கடன் வாங்குபவர்கள் தங்கள் நிதிகளை சிறப்பாக நிர்வகிக்கலாம் மற்றும் அதிக கடன் வாங்குவதைத் தவிர்க்கலாம்.<br><br>
+                               4. வெளிப்படைத்தன்மை:<br>
+                                
+                                ஒவ்வொரு கட்டணமும் எவ்வளவு வட்டிக்கு செல்கிறது மற்றும் அசல் திருப்பிச் செலுத்துதலுக்கு எவ்வளவு செல்கிறது என்பதைக் காட்டுவதன் மூலம் வெளிப்படைத்தன்மையை வழங்குகிறது.<br><br>
+                                5.அறிவிக்கப்பட்ட முடிவெடுத்தல்:<br>
+                                
+                                கடன் தொகைகள், காலங்கள் மற்றும் வட்டி விகிதங்கள் பற்றிய தகவலறிந்த முடிவுகளை எடுக்க கடன் வாங்குபவர்களுக்கு உதவுகிறது, இது மிகவும் விவேகமான நிதித் தேர்வுகளுக்கு வழிவகுக்கும்.<br><br>
+                                6. நெகிழ்வுத்தன்மை:<br>
+                                
+                                பயனர்கள் தங்கள் தேவைகளுக்கு ஏற்ற சிறந்த கடன் கட்டமைப்பைத் தேர்வுசெய்ய உதவுவதன் மூலம் EMI மீதான தாக்கத்தைக் காண கடன் அளவுருக்களை சரிசெய்ய அனுமதிக்கிறது.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                       
+                        <span class="english-content"> What Components Are Shown in the Graph?</span>
+                        <span class="tamil-content">வரைபடத்தில் என்ன கூறுகள் காட்டப்படுகின்றன?</span>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="english-content"><b>1. Principal Payment:</b> The portion of the EMI that goes towards repaying the loan principal.<br>
+                           <b>2. Interest Payment:</b>  The portion of the EMI that covers the interest on the remaining loan balance.<br>
+                           <b>3. Remaining Balance:</b>  The outstanding loan balance after each payment.<br>
+                           <b> 4. Tax Amount:</b>Any fixed monthly tax or additional fee.</p>
+
+                           <p class="tamil-content">
+                            1. முதன்மைப் பணம்:</b> கடன் அசலைத் திருப்பிச் செலுத்தும் EMIயின் பகுதி.<br>
+                           <b>2. வட்டி செலுத்துதல்:</b> மீதமுள்ள கடன் நிலுவைத் தொகையின் வட்டியை உள்ளடக்கிய EMI இன் பகுதி.<br>
+                           <b>3. மீதி இருப்பு:</b> ஒவ்வொரு கட்டணத்திற்குப் பிறகும் நிலுவையில் உள்ள கடன் பாக்கி.<br>
+                           <b> 4. வரித் தொகை:</b>ஏதேனும் நிலையான மாதாந்திர வரி அல்லது கூடுதல் கட்டணம்
+                           </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      
+                        <span class="english-content">  Why Is This Graph Useful?</span>
+                        <span class="tamil-content">இந்த வரைபடம் ஏன் பயனுள்ளதாக இருக்கிறது?</span>
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p class="english-content">This graph helps you visualize how your loan repayment is structured over time, making it easier to understand the progression of payments and how much of your money goes towards interest versus the principal.
+
+                        </p>
+
+                        <p class="tamil-content">உங்கள் கடனைத் திருப்பிச் செலுத்துவது காலப்போக்கில் எவ்வாறு கட்டமைக்கப்பட்டுள்ளது என்பதைக் கற்பனை செய்து பார்க்க இந்த வரைபடம் உதவுகிறது, மேலும் பணம் செலுத்துதலின் முன்னேற்றத்தைப் புரிந்துகொள்வதை எளிதாக்குகிறது மற்றும் உங்கள் பணம் அசல் மற்றும் வட்டிக்கு எவ்வளவு செல்கிறது.</p>
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.getElementById('english-option').addEventListener('click', () => {
+            document.querySelectorAll('.english-content').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('.tamil-content').forEach(el => el.style.display = 'none');
+        });
+
+        document.getElementById('tamil-option').addEventListener('click', () => {
+            document.querySelectorAll('.english-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tamil-content').forEach(el => el.style.display = 'block');
+        });
+
+        // Initialize page with English content
+        document.getElementById('english-option').click();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link  rel="stylesheet"  href="otpstyle.css">
+  <style>
+    .signin-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="split-container">
+    <div class="left-side">
+      <h2>Simple, Free Investing.</h2>
+    </div>
+    <div class="right-side">
+      <div class="w-100">
+        <h2 class="text-center mb-4">Welcome to All</h2>
+        <div class="signin-container">
+          <div id="g_id_onload"
+               data-client_id="205468551568-easqmig20adbo9ltqikqf5cl91566koc.apps.googleusercontent.com"
+               data-callback="handleCredentialResponse"></div>
+          <div class="g_id_signin" data-type="standard"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleCredentialResponse(response) {
+      const responsePayload = decodeJwtResponse(response.credential);
+      sessionStorage.setItem('email', responsePayload.email);
+      window.location.href = 'googlesignout.html';
+    }
+
+    function decodeJwtResponse(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    window.onload = function () {
+      google.accounts.id.initialize({
+          client_id: '205468551568-easqmig20adbo9ltqikqf5cl91566koc.apps.googleusercontent.com',
+          callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+          document.querySelector(".g_id_signin"),
+          { theme: "outline", size: "large", width: "100%" }
+      );
+      google.accounts.id.prompt();
+    };
+  </script>
+</body>
+</html>

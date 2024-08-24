@@ -1,0 +1,72 @@
+body {
+    background-color:white;
+    font-family: Arial, sans-serif; 
+    color: red;
+  }
+  .fields-container {
+    display: flex; 
+    justify-content: center;
+    background-color:#1B1464; 
+    color:#c0392b;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(147, 10, 10, 0.1);
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+  }
+  .fields-section {
+    flex: 1;
+    padding: 20px;
+  }
+  .fields-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .form-label {
+    color: #ED4C67;
+  } 
+  .form-control {
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .custom-radio-label {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+ /* Default styles for .btnmodel */
+.btnmodel {
+  width: 35%;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #ccc;
+  color: red;
+}
+
+
+
+/* Media query for screens smaller than 480px */
+@media only screen and (max-width: 480px) {
+  .btnmodel {
+      width: 70%; /* Further adjust width for very small screens */
+      padding: 10px; /* Increase padding even more */
+      font-size: 14px; /* Adjust font size */
+  }
+}
+
+  .btn{
+    color: #1B1464;
+  }
+  .header {
+width: 5rem;
+height: 5rem;
+
+background-color: transparent;
+}
+
