@@ -16,19 +16,20 @@
 <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
 <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
 
-  <link rel="stylesheet" href="style/stylelang.css">
+  <link rel="stylesheet" href="stylelang.css">
 </head>
 <body>
- 
-  <div id="chart-container"  class="header" style="width: 100%; height: 300px;">
-    <!-- <img src="Screenshot 2024-08-10 025145.png" width="100%" height="100%"> -->
-  </div>
+
+
+
+  <div id="chart-container" style="width: 100%; height: 300px;"></div>
+  
  
   <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை கணக்கீடு" data-english="Equal Monthly Installment Calculator">சமமான மாதாந்திர தவணை கணக்கீடு </h1>
   <div class="fields-container container-sm  ">
    
     <div class="fields-section">
-      <div class="header me-5 text-end mt-4">
+      <div class="header me-5 text-end mt-1">
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Language
@@ -85,7 +86,7 @@
         <input type="number" id="tax" class="form-control" required>
       </div>
       <div> 
-        <div data-tamil="வீட்டு கடன்:" data-english="Home Loan:">வீட்டு கடன்:</div>
+        <div  id = "hen" data-tamil="வீட்டு கடன்:" data-english="Home Loan:">வீட்டு கடன்:</div>
         <div class="form-group custom-radio-label">
           <div class="form-group">
           <input type="radio" id="radio1" name="optradio1" value="option1">
@@ -96,7 +97,7 @@
           <label class="form-check-label" for="radio2" data-tamil="இல்லை" data-english="No">இல்லை</label>
         </div>
       </div>
-      <div data-tamil="வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:" data-english="Home Loan and Tax Approval:">வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:</div>
+      <div  id = "hen" data-tamil="வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:" data-english="Home Loan and Tax Approval:">வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:</div>
       <div class="form-group custom-radio-label">
         <div class="form-group">
           <input type="radio" id="radio3" name="optradio2" value="option1">
@@ -154,6 +155,6 @@
   
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="src/example.js"></script>
+  <script src="example.js"></script>
 </body>
 </html>

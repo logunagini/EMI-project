@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMI Calculator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="Screenshot_10-8-2024_25018_127.0.0.1.jpeg">
+  <!-- <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-cartesian.min.js"></script> -->
+  <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-cartesian.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+<link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+<link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+<!-- nav link order -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href=" styles.css">
+
+  <link rel="stylesheet" href="style/emiProject.css">
+</head>
+<body>
+ 
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">My Portfolio💕💕💕</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="emiProject.html">Emi calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+  </div>
+</nav>
+
+
+  <div id="chart-container"  class="header" style="width: 100%; height: 300px;">
+    <!-- <img src="Screenshot 2024-08-10 025145.png" width="100%" height="100%"> -->
+  </div>
+ 
+  <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை கணக்கீடு" data-english="Equal Monthly Installment Calculator">சமமான மாதாந்திர தவணை கணக்கீடு </h1>
+  <div class="fields-container container-sm  ">
+   
+    <div class="fields-section">
+      <div class="header me-5 text-end mt-1">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Language
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#" id="english-option">English</a></li>
+                <li><a class="dropdown-item" href="#" id="tamil-option">தமிழ்</a></li>
+            </ul>
+        </div>
+    </div>
+     
+
+      <h2 data-tamil="உங்கள் தரவை உள்ளிடவும்" data-english="Enter Your Data!!!">உங்கள் தரவை உள்ளிடவும்</h2>
+      <div class="form-group"> 
+        <label for="Principal" class="form-label" data-tamil="அசல் (ரூ):" data-english="Principal:">அசல் (ரூ):</label>
+        <input type="number" id="Principal" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="paymentInAdvance" class="form-label" data-tamil="முன் பணம் (ரூ) :" data-english="Advance Payment (₹):">முன் பணம் (ரூ) :</label>
+        <input type="number" id="paymentInAdvance" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="InterestRate" class="form-label" data-tamil="வட்டி விகிதம் (%) (ஆண்டு) :" data-english="Interest Rate (%) (Annual):">வட்டி விகிதம் (%) (ஆண்டு) :</label>
+        <input type="number" id="InterestRate" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="month" class="form-label" data-tamil="மாதங்கள் :" data-english="Months:">மாதங்கள் :</label>
+        <input type="number" id="month" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="currentYear" class="form-label" data-tamil="தொடங்கும் ஆண்டு :" data-english="Start Year:">தொடங்கும் ஆண்டு :</label>
+        <input type="number" id="currentYear" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="currentMonth" class="form-label" data-tamil="தொடங்கும் மாதம் :" data-english="Start Month:">தொடங்கும் மாதம் :</label>
+        <select id="currentMonth" class="form-control" required>
+          <option ></option>
+          <option value="0" data-tamil="ஜனவரி" data-english="January">ஜனவரி</option>
+          <option value="1" data-tamil="பிப்ரவரி" data-english="February">பிப்ரவரி</option>
+          <option value="2" data-tamil="மார்ச்" data-english="March">மார்ச்</option>
+          <option value="3" data-tamil="ஏப்ரல்" data-english="April">ஏப்ரல்</option>
+          <option value="4" data-tamil="மே" data-english="May">மே</option>
+          <option value="5" data-tamil="ஜூன்" data-english="June">ஜூன்</option>
+          <option value="6" data-tamil="ஜூலை" data-english="July">ஜூலை</option>
+          <option value="7" data-tamil="ஆகஸ்ட்" data-english="August">ஆகஸ்ட்</option>
+          <option value="8" data-tamil="செப்டம்பர்" data-english="September">செப்டம்பர்</option>
+          <option value="9" data-tamil="அக்டோம்பர்" data-english="October">அக்டோம்பர்</option>
+          <option value="10" data-tamil="நவம்பர்" data-english="November">நவம்பர்</option>
+          <option value="11" data-tamil="டிசம்பர்" data-english="December">டிசம்பர்</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tax" class="form-label" data-tamil="வரி (ஆண்டு) :" data-english="Tax (Annual):">வரி (ஆண்டு) :</label>
+        <input type="number" id="tax" class="form-control" required>
+      </div>
+      <div> 
+        <div  class='hen'   data-tamil="வீட்டு கடன்:" data-english="Home Loan:">வீட்டு கடன்:</div>
+        <div class="form-group custom-radio-label">
+          <div class="form-group">
+          <input type="radio" id="radio1" name="optradio1" value="option1">
+          <label class="form-check-label" for="radio1" data-tamil="ஆம்" data-english="Yes">ஆம்</label>
+        </div><br>
+        <div class="form-group">
+          <input type="radio" id="radio2" name="optradio1" value="option2">
+          <label class="form-check-label" for="radio2" data-tamil="இல்லை" data-english="No">இல்லை</label>
+        </div>
+      </div>
+      <div class='hen'   data-tamil="வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:" data-english="Home Loan and Tax Approval:">வீட்டுக் கடன் மற்றும் வரி ஒப்புதல்:</div>
+      <div class="form-group custom-radio-label">
+        <div class="form-group">
+          <input type="radio" id="radio3" name="optradio2" value="option1">
+          <label class="form-check-label" for="radio3" data-tamil="ஆம்" data-english="Yes">ஆம்</label>
+        </div><br>
+        <div class="form-group">
+          <input type="radio" id="radio4" name="optradio2" value="option2">
+          <label class="form-check-label" for="radio4" data-tamil="இல்லை" data-english="No">இல்லை</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="button"  id="calBtn" class="btn btn-danger" data-tamil="கணக்கீடு" data-english="Calculate">கணக்கீடு</button>
+      </div>
+    </div> 
+    </div>
+    <div class="fields-section">
+      <div class="number-start my-3">  <button id="restartButton" class="btnmodel mx-4">Refresh</button></div>
+      <h2 data-tamil="உங்கள் தரவு இங்கே காணவும்" data-english= "your datas here!!!">உங்கள் தரவு இங்கே காணவும்</h2>
+      <div class="form-group">
+        <label class="form-label" data-tamil="கடன் தொகை (ரூ) :" data-english="Loan Amount (₹):">கடன் தொகை (ரூ) :</label>
+        <div id="loanAmount" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="முன் பணம் சதவீதம் :" data-english="Advance Payment Percentage:">முன் பணம் சதவீதம் :</label>
+        <div id="advance" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="மாதத் தவணை தொகை :" data-english="Monthly EMI Amount:">மாதத் தவணை தொகை :</label>
+        <div id="monthlyEmi" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="மாத வரி :" data-english="Monthly Tax:">மாத வரி :</label>
+        <div id="taxid" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="மொத்த வரி :" data-english="Total Tax:">மொத்த வரி :</label>
+        <div id="totalTax" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="மொத்த மாதங்களின் தவணை:" data-english="Total Installments for Months:">மொத்த மாதங்களின் தவணை:</label>
+        <div id="totalofemi" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="ஆண்டின் மொத்தத் தவணை :" data-english="Total Annual Installments:">ஆண்டின்  மொத்தத் தவணை :</label>
+        <div id="annuvaltotalemi" class="p-3 form-control"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil="மொத்த வட்டி :" data-english="Total Interest:">மொத்த வட்டி :</label>
+        <div id="totalInterest" class="p-3 form-control"></div>
+      </div>
+      
+      <div id="PrincipalAmount"></div>
+    </div>
+  </div>
+  
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/emiProject.js"></script>
+</body>
+</html>

@@ -1,13 +1,18 @@
 body {
-    background-color:white;
-    font-family: Arial, sans-serif; 
-    color: red;
-  }
+  background-image: url('bg3.jpg');
+  font-family: Arial, sans-serif; 
+  color: #e84118;
+  background-repeat: no-repeat;
+  background-size: cover; /* Makes the image cover the entire screen */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image fixed when scrolling */
+}
   .fields-container {
     display: flex; 
     justify-content: center;
-    background-color:#1B1464; 
-    color:#c0392b;
+    background-color:#273c75; 
+    color: #e84118;
+    font-weight: 400;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(147, 10, 10, 0.1);
     max-width: 800px;
@@ -23,21 +28,24 @@ body {
     margin-bottom: 20px;
   }
   .form-label {
-    color: #ED4C67;
+    color: white;
   } 
   .form-control {
     border-radius: 5px;
     margin-bottom: 10px;
+    
   }
   .custom-radio-label {
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid white;
+    color:#e84118;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
   }
+ 
 
  /* Default styles for .btnmodel */
 .btnmodel {
@@ -45,11 +53,15 @@ body {
   padding: 5px;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #ccc;
-  color: red;
+  background-color: white;
+  color:#e84118;
 }
-
-
+#hen{
+  color: white ;
+}
+.btn btn {
+  color: #07c6ec ;
+}
 
 /* Media query for screens smaller than 480px */
 @media only screen and (max-width: 480px) {
@@ -63,10 +75,10 @@ body {
   .btn{
     color: #1B1464;
   }
-  .header {
+  /* .header {
 width: 5rem;
 height: 5rem;
 
 background-color: transparent;
-}
-
+} */
+ 

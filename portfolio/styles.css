@@ -1,0 +1,92 @@
+
+/* Basic styles */
+
+    body {
+        background-color: #141a2b;
+        color: #07c6ec;
+        font-family: Arial, sans-serif;
+    }
+    
+
+
+h2 {
+    color:  #D74B76;
+    margin-bottom: 2rem;
+}
+h3{
+    color:  #D74B76;
+    margin-bottom: 2rem;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(45deg,#07c6ec, #6c757d);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color:  #D74B76;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+/* Portfolio cards */
+.card img {
+    height: 400px;
+    /* object-fit: cover; */
+    width: 350px;
+    padding: auto;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Skills section */
+
+/* Testimonials */
+blockquote {
+    margin-bottom: 1rem;
+}
+
+blockquote-footer {
+    font-size: 0.85rem;
+}
+
+
+
+
+
+.btn-primary {
+    background-color:  #D74B76;
+    border-color: #07c6ec;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+
+#navbarNav ul li a{
+    color:  #D74B76;
+    display: flexbox;
+    
+}
+#navbarNav ul li a:hover{
+    color:#07c6ec;
+}
