@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let totalTax = document.getElementById("totalTax");
     let AnnuvalTotalEmi = document.getElementById("annuvaltotalemi");
     let TotalOfEmi = document.getElementById("totalofemi");
+    let Today = document.getElementById("today");
+    // let CurrentMonth = document.getElementById("currentMonth");
 
     function calculateEMI(event) {
         event.preventDefault();
@@ -115,15 +117,20 @@ document.addEventListener("DOMContentLoaded", function() {
         let radio4 = document.getElementById('radio4');
 
         const today = new Date();
+        Today.textContent = today;
+        console.log(today);
         let currentMonth = today.getMonth();
+        
 
         function printMonthsAfter(startMonth = currentMonth, startYear = currentYear, durationMonths = months) {
             let month = startMonth;
+           
             let year = startYear;
             const monthNames = currentLang === 'tamil' ?
                 ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோம்பர்', 'நவம்பர்', 'டிசம்பர்'] :
                 ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+                // console.log(monthNames[month]);
+                // CurrentMonth= monthNames[month];
             const monthData = [];
             for (let i = 1; i <= durationMonths; i++) {
                 const monthName = monthNames[month];
@@ -133,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     month = 0;
                     year++;
                 }
+               
             }
+           
             return monthData;
         }
 
@@ -225,9 +234,10 @@ document.addEventListener("DOMContentLoaded", function() {
             let balanceData = dataSet.mapAs({ x: 'x', value: 'balance' });
 
             // Create column series for tax, interest, and principal data
-            chart.column(taxData).name('Taxes').color('#a8c0ff');
-            chart.column(interestData).name('Interest').color('#668cff');
-            chart.column(principalData).name('Principal').color('#002080');
+            chart.column(taxData).name('Taxes').color('#D74B76');
+            chart.column(interestData).name('Interest').color('#07c6ec');
+            chart.column(principalData).name('Principal').color('#141a2b');
+            
 
             // Create line series for balance data
             let balanceScale = anychart.scales.linear();
@@ -240,8 +250,9 @@ document.addEventListener("DOMContentLoaded", function() {
     lineSeries.markers()
         .type('circle') // Set marker type to circle
         .size(1) // Set marker size
-        .fill('#000000') // Set marker fill color
-        .stroke('2 #000000');
+        .fill('#D74B76') // Set marker fill color
+     
+        .stroke('5 #000000');
             // Configure the Y-axis to support stacking
             chart.yScale().stackMode('value');
 

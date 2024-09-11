@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="Screenshot_10-8-2024_25018_127.0.0.1.jpeg">
-  <!-- <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-cartesian.min.js"></script> -->
   <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-bundle.min.js"></script>
 <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-cartesian.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
@@ -28,33 +26,31 @@
 <body>
  
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#">My Portfolio💕💕💕</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">My-projects</a></li>
           <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="emiProject.html">Emi calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="emiProject.html">Emi Calculator</a></li>
+          <li class="nav-item"><a class="nav-link" href="rcdTeam.html">RCD Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="mentor.html">My Mentor</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
   </div>
 </nav>
-
-
-  <div id="chart-container"  class="header" style="width: 100%; height: 300px;">
-    <!-- <img src="Screenshot 2024-08-10 025145.png" width="100%" height="100%"> -->
-  </div>
+<section class=" m-5 py-5">
  
-  <h1 class="card-title text-center " data-tamil="சமமான மாதாந்திர தவணை கணக்கீடு" data-english="Equal Monthly Installment Calculator">சமமான மாதாந்திர தவணை கணக்கீடு </h1>
+  <h1 class="  card-title text-center " data-tamil="சமமான மாதாந்திர தவணை கணக்கீடு" data-english="Equal Monthly Installment Calculator">சமமான மாதாந்திர தவணை கணக்கீடு </h1>
   <div class="fields-container container-sm  ">
    
-    <div class="fields-section">
+    <div class="fields-section ">
       <div class="header me-5 text-end mt-1">
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +88,6 @@
       <div class="form-group">
         <label for="currentMonth" class="form-label" data-tamil="தொடங்கும் மாதம் :" data-english="Start Month:">தொடங்கும் மாதம் :</label>
         <select id="currentMonth" class="form-control" required>
-          <option ></option>
           <option value="0" data-tamil="ஜனவரி" data-english="January">ஜனவரி</option>
           <option value="1" data-tamil="பிப்ரவரி" data-english="February">பிப்ரவரி</option>
           <option value="2" data-tamil="மார்ச்" data-english="March">மார்ச்</option>
@@ -138,8 +133,8 @@
         <button type="button"  id="calBtn" class="btn btn-danger" data-tamil="கணக்கீடு" data-english="Calculate">கணக்கீடு</button>
       </div>
     </div> 
-    </div>
-    <div class="fields-section">
+  </div>
+    <div class="fields-section ">
       <div class="number-start my-3">  <button id="restartButton" class="btnmodel mx-4">Refresh</button></div>
       <h2 data-tamil="உங்கள் தரவு இங்கே காணவும்" data-english= "your datas here!!!">உங்கள் தரவு இங்கே காணவும்</h2>
       <div class="form-group">
@@ -174,6 +169,11 @@
         <label class="form-label" data-tamil="மொத்த வட்டி :" data-english="Total Interest:">மொத்த வட்டி :</label>
         <div id="totalInterest" class="p-3 form-control"></div>
       </div>
+      <div class="form-group">
+        <label class="form-label" data-tamil=" இன்று:" data-english="Today:"> இன்று:</label>
+        <div id="today" class="p-3 form-control"></div>
+      </div>
+      
       
       <div id="PrincipalAmount"></div>
     </div>
@@ -181,6 +181,15 @@
   
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
   <script src="src/emiProject.js"></script>
+  </section>
+  <div id="chart-container"  class="header cl" style="width: 100%; height: 400px;">
+  
+  </div>
 </body>
 </html>

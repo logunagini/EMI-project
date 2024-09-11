@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom C++ Icon with Font Awesome</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .fa-cplusplus {
+            position: relative;
+        }
+        
+        .fa-cplusplus::after {
+            content: "C++";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.5em;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom C++ Icon -->
+    <i class="fas fa-file-code fa-cplusplus fa-3x" style="color: #00599C;"></i>
+
+    <!-- Optional: Add a caption or label below the icon -->
+    <p>C++</p>
+</body>
+</html>

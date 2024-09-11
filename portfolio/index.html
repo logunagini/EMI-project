@@ -11,6 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href=" styles.css">
     <link rel="stylesheet" href="style/contanct.css">
+    <link rel="stylesheet" href="style/skill.css">
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -20,11 +21,17 @@
       emailjs.init("bxbDyH0vd6KaQzt51");
    })();
 </script>
+<style>
+    .card-img-top {
+        height: 300px; /* Adjust image height */
+        object-fit: inherit; /* Ensure image covers the card without distortion */
+    }
+</style>
     
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
         <a class="navbar-brand" href="#">My Portfolio💕💕💕</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,19 +40,21 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">My-projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
                 <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="emiProject.html">Emi Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="rcdTeam.html">RCD Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="mentor.html">My Mentor</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="bg-primary text-white text-center py-5">
+    <section id="home" class="bg-info text-danger text-center py-5">
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
+            <h1 class="m-5 pt-5">Welcome to My Portfolio</h1>
             <p class="lead">I'm a Web Developer</p>
             <a href="about.html" class="btn btn-light mt-4">Learn More</a>
         </div>
@@ -54,7 +63,7 @@
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container">
-            <h2 class="text-center ">About Me❤️❤️</h2>
+            <h2 class="text-center m-5">About Me❤️❤️</h2>
             <div class="row">
                 <div class="col-md-6">
                     <img src="img/profile.jpg" class="img-fluid rounded-circle mb-3" alt="Profile Picture">
@@ -66,40 +75,45 @@
 
                     </p>
                     <a href="portfolio.html" class="btn btn-primary mt-4">View My Work</a>
+                    <a class="btn btn-outline-info mt-4 btn-md-square rounded-circle" href="https://www.linkedin.com/in/logeshwari-a-652a62282/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-info mt-4 btn-md-square rounded-circle" href="https://logunagini.github.io/EMI-project/goole/final.html">
+            <i class="fab fa-google"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-5 bg-light">
+    <section>
+    <section id="portfolio" class="py-5  bg-info"></section>
+        
         <div class="container">
-            <h2 class="text-center">Portfolio</h2>
+            <h2 class="text-center my-5">Portfolio</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="img/project1.jpg" class="card-img-top" alt="Project 1">
+                    <div class="card ">
+                        <img src="img/emidata.png" class="card-img-top" alt="Project 1" >
                         <div class="card-body">
-                            <h5 class="card-title">Project 1</h5>
-                            <p class="card-text">An e-commerce website built with React and Node.js.</p>
+                            <h5 class="card-title">Monthly Emi calculator💕💕</h5>
+                            <a href="https://logunagini.github.io/EMI-project/style/sent_otp.html">https://logunagini.github.io/EMI-project/style/sent_otp.html</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="img/project2.jpg" class="card-img-top" alt="Project 2">
+                        <img src="img/GS.png" class="card-img-top" alt="Project 2">
                         <div class="card-body">
-                            <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">A personal blog platform created with Django and PostgreSQL.</p>
+                            <h5 class="card-title w-100" >Google with Signin👍👍👍</h5>
+                           <a href="https://logunagini.github.io/EMI-project/goole/final.html">https://logunagini.github.io/EMI-project/goole/final.html</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="img/project3.jpg" class="card-img-top" alt="Project 3">
+                        <img src="img/guess.png" class="card-img-top" alt="Project 3">
                         <div class="card-body">
-                            <h5 class="card-title">Project 3</h5>
-                            <p class="card-text">A real-time chat application using Socket.io and Express.js.</p>
+                            <h5 class="card-title">Guess Game👌👌👌</h5>
+                           <a href="https://logunagini.github.io/html-homework/guessGame/js_guess_game.html">https://logunagini.github.io/html-homework/guessGame/js_guess_game.html</a>
                         </div>
                     </div>
                 </div>
@@ -108,65 +122,39 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5">
-        <div class="container ">
-            <div class="contact-form">
-                <h1 class="text-center">Skills👍👍</h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="text-center">Front-End</h3>
-                        <ul class="list-unstyled">
-                            <li><i class="fab fa-html5"></i> HTML</li>
-                            <li><i class="fab fa-css3-alt"></i> CSS</li>
-                            <li><i class="fab fa-js-square"></i> JavaScript</li>
-                            <li><i class="fab fa-react"></i> Bootstrap</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>Back-End</h3>
-                        <ul class="list-unstyled">
-                            <li><i class="fab fa-node"></i> </li>
-                            <li><i class="fas fa-database"></i> SQL</li>
-                            <li><i class="fab fa-python"></i> Python</li>
-                            <li><i class="fab fa-docker"></i> </li>
-                        </ul>
-                    </div>
-                </div>
-               
-            </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center">Testimonials</h2>
+    <section id="portfolio" class="py-5  bg-info"></section>
+   <section>
+    <div class="container ">
+        <div class="contact-form">
+            <h1 class="text-center m-5">Skills!</h1>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"John was fantastic to work with. His attention to detail and commitment to the project were outstanding."</p>
-                            <footer class="blockquote-footer">Client Name, <cite title="Source Title">Company Name</cite></footer>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <h3 class="text-center">Front-End</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-html5"></i> HTML</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS</li>
+                        <li><i class="fab fa-js-square"></i> JavaScript</li>
+                    
+                      <li><i class="fab fa-bootstrap"></i>Bootstrap</li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"Delivered the project ahead of schedule and exceeded our expectations in every way."</p>
-                            <footer class="blockquote-footer">Client Name, <cite title="Source Title">Company Name</cite></footer>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"Highly recommend John for any web development project. A true professional."</p>
-                            <footer class="blockquote-footer">Client Name, <cite title="Source Title">Company Name</cite></footer>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <h3>Back-End</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-c++"></i>C++</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fab fa-python"></i> Python</li>
+                       
+                    </ul>
                 </div>
             </div>
+           
         </div>
+   </section>
+   
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-info">
+       
     </section>
 
     <!-- Contact Section -->
@@ -230,7 +218,7 @@
                         alert('Failed to send your message. Please try again later.');
                     });
             });
-        </script>
+        </script> 
     </section>
 
     <!-- Footer -->

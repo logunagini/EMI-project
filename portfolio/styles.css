@@ -34,12 +34,7 @@ header p {
 }
 
 /* Portfolio cards */
-.card img {
-    height: 400px;
-    /* object-fit: cover; */
-    width: 350px;
-    padding: auto;
-}
+
 
 .card-title {
     font-size: 1.25rem;
@@ -47,17 +42,6 @@ header p {
 }
 
 /* Skills section */
-
-/* Testimonials */
-blockquote {
-    margin-bottom: 1rem;
-}
-
-blockquote-footer {
-    font-size: 0.85rem;
-}
-
-
 
 
 
@@ -85,6 +69,7 @@ footer {
 #navbarNav ul li a{
     color:  #D74B76;
     display: flexbox;
+    
     
 }
 #navbarNav ul li a:hover{
