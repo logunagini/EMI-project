@@ -4,16 +4,18 @@
 
 .card-title{
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 900;
+  color: orange;
   
 
 }
   .fields-container {
     display: flex; 
     justify-content: center;
-    background-color:#1c2333; 
-    color: #D74B76;
+    background-color:black; 
+    color: orange;
     font-weight: 400;
+    /* font-size: 20px; */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(147, 10, 10, 0.1);
     max-width: 800px;
@@ -24,18 +26,18 @@
     flex: 1;
     padding: 20px;
   }
-  .fields-section h2 {
-    font-size: 1.5rem;
+  .fields-container h2 {
+    font-size: 21px;
     margin-bottom: 20px;
   }
   .form-label {
-    color:  #07c6ec;
+    color:  white;
     
   } 
-  .hen
+  #hen
   {
    
-      color:  #07c6ec;
+      color:  white;
     
   }
   .form-control {
@@ -46,8 +48,8 @@
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid #07c6ec ;
-    color: #D74B76;
+    border: 1px solid white ;
+    color: white;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -59,71 +61,63 @@
   padding: 5px;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #ccc;
-  color:#D74B76;
+  background-color: orange;
+  color:white;
 }
 
 
 
-/* Media query for screens smaller than 480px */
-@media only screen and (max-width: 480px) {
-  .btnmodel {
-      width: 70%; /* Further adjust width for very small screens */
-      padding: 10px; /* Increase padding even more */
-      font-size: 14px; /* Adjust font size */
-  }
-}
 
-  .btn{
-    color: #1B1464;
-  }
-  .header {
-  
+.btn{
+background-color: orange;
+color: white;
+}
+.header {
+
 width: 5rem;
 height: 5rem;
 
 background-color: transparent;
 }
-  /* Navbar Background and Text Colors */
-  .navbar {
-    background-color: #f8f9fa; /* Light grey background */
-    border-bottom: 1px solid #dee2e6; /* Slightly darker border at the bottom */
-  }
 
-  /* Navbar Brand and Link Styling */
-  .navbar-light .navbar-nav .nav-link {
-    color: #D74B76; /* Primary blue color for links */
-    font-size: 1rem; /* Standard font size */
-    font-weight: 500; /* Medium weight font */
-    padding: 10px 20px; /* Padding around links */
-    transition: color 0.3s ease-in-out; /* Smooth color transition on hover */
+@media (min-width: 320px)  and (max-width: 480px)
+{
+ 
+  .btnmodel {
+    width: 100%; 
+    padding: 10px; 
+    font-size: 14px; 
   }
+  .fields-container {
+    max-width: 80%;
+    padding: 20px;
+    font-size: 11px;
+  }
+  .fields-section {
+    padding: 10px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .form-control {
+    margin-bottom: 8px;
+  }
+  .custom-radio-label {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+ .btn{
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: orange;
+  color:white;
+ }
+ h2 {
+  font-size: 14px;
+}
 
-  /* Navbar Link Hover Effect */
-  .navbar-light .navbar-nav .nav-link:hover {
-    color:#D74B76; /* Darker blue on hover */
-  }
-
-  /* Active Link Styling */
-  .navbar-light .navbar-nav .nav-item.active .nav-link {
-    color: #343a40; /* Dark grey color for active link */
-    font-weight: 700; /* Bold font for active link */
-  }
-
-  /* Navbar Toggler (Hamburger Icon) Styling */
-  .navbar-toggler {
-    border-color: transparent; /* Remove border from the toggler button */
-    outline: none; /* Remove outline on focus */
-  }
-
-  .navbar-toggler .fa-bars {
-    font-size: 1.5rem; /* Slightly larger icon size */
-  }
-
-  /* Responsive Navbar Collapse */
-  @media (max-width: 991.98px) {
-    .navbar-collapse {
-      background-color: #f8f9fa; /* Ensure the background matches on mobile */
-      padding: 1rem; /* Add padding inside the collapsed menu */
-    }
-  }
+}

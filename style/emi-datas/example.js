@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let totalTax = document.getElementById("totalTax");
     let AnnuvalTotalEmi = document.getElementById("annuvaltotalemi");
     let TotalOfEmi = document.getElementById("totalofemi");
+    // let year = document.getElementById("year");
 
     function calculateEMI(event) {
         event.preventDefault();
@@ -107,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let paymentInAdvance = parseFloat(document.getElementById("paymentInAdvance").value) || 0;
         let interestRate = parseFloat(document.getElementById("InterestRate").value) || 0;
         let months = parseInt(document.getElementById("month").value) || 0;
+       
         let currentYear = parseInt(document.getElementById("currentYear").value) || new Date().getFullYear();
         let tax = parseFloat(document.getElementById("tax").value) || 0;
         let radio1 = document.getElementById('radio1');
@@ -116,7 +118,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const today = new Date();
         let currentMonth = today.getMonth();
-
+        
+        console.log(currentYear);
+    
         function printMonthsAfter(startMonth = currentMonth, startYear = currentYear, durationMonths = months) {
             let month = startMonth;
             let year = startYear;
@@ -225,9 +229,9 @@ document.addEventListener("DOMContentLoaded", function() {
             let balanceData = dataSet.mapAs({ x: 'x', value: 'balance' });
 
             // Create column series for tax, interest, and principal data
-            chart.column(taxData).name('Taxes').color('#a8c0ff');
-            chart.column(interestData).name('Interest').color('#668cff');
-            chart.column(principalData).name('Principal').color('#002080');
+            chart.column(taxData).name('Taxes').color('#e67e22');
+            chart.column(interestData).name('Interest').color('#ffa502');
+            chart.column(principalData).name('Principal').color('#f1c40f');
 
             // Create line series for balance data
             let balanceScale = anychart.scales.linear();
