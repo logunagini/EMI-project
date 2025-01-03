@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         currentLang = "tamil";
     });
         btnRestart.addEventListener("click", function () {
-        // btnRestart.style.backgroundColor = 'green';
-        // englishBtn.style.backgroundColor = 'white';
-        // tamilBtn.style.backgroundColor = 'white';
+      
         location.reload();
     });
 
@@ -39,56 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-
-//     const tamilBtn = document.getElementById("tamilBtn");
-//     const englishBtn = document.getElementById("englishBtn");
-//     const btnRestart = document.getElementById("restartButton");
-
-//     // Set the initial color of both buttons to white
-//     tamilBtn.style.backgroundColor = 'white';
-//     englishBtn.style.backgroundColor = 'white';
-//     btnRestart.style.backgroundColor = 'white';
-
-//     let currentLanguage = "tamil"; // Default language
-
-//     // Add click event listener to tamilBtn
-//     tamilBtn.addEventListener("click", function () {
-//         setLanguage("tamil");
-
-//         // Change tamilBtn's background color to green and englishBtn to white
-//         tamilBtn.style.backgroundColor = 'green';
-//         englishBtn.style.backgroundColor = 'white';
-//         btnRestart.style.backgroundColor = 'white';
-
-//         currentLanguage = "english";
-//     });
-
-//     // Add click event listener to englishBtn
-//     englishBtn.addEventListener("click", function () {
-//         setLanguage("english");
-
-//         // Change englishBtn's background color to green and tamilBtn to white
-//         englishBtn.style.backgroundColor = 'green';
-//         tamilBtn.style.backgroundColor = 'white';
-//         btnRestart.style.backgroundColor = 'white';
-
-//         currentLanguage = "english";
-//     });
-
-//     btnRestart.addEventListener("click", function () {
-//         btnRestart.style.backgroundColor = 'green';
-//         englishBtn.style.backgroundColor = 'white';
-//         tamilBtn.style.backgroundColor = 'white';
-//         location.reload();
-//     });
-
-//     function setLanguage(language) {
-//         const elements = document.querySelectorAll("[data-tamil], [data-english]");
-//         elements.forEach(element => {
-//             element.textContent = element.getAttribute(`data-${language}`);
-//         });
-//     }
 
     let calculateButton = document.getElementById("calBtn");
     let monthlyEMI = document.getElementById("monthlyEmi");
@@ -100,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let AnnuvalTotalEmi = document.getElementById("annuvaltotalemi");
     let TotalOfEmi = document.getElementById("totalofemi");
     // let year = document.getElementById("year");
-
+    let isChartRendered = false;
     function calculateEMI(event) {
         event.preventDefault();
 
@@ -204,6 +152,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let wholeEMI = monthTotalEMI * months;
         TotalOfEmi.textContent = wholeEMI.toFixed(2);
+        if (!isChartRendered) {
+            isChartRendered = true; // Set the flag to true after the first click
+    
 
         anychart.onDocumentReady(function () {
             // Create a Cartesian chart
@@ -229,9 +180,9 @@ document.addEventListener("DOMContentLoaded", function() {
             let balanceData = dataSet.mapAs({ x: 'x', value: 'balance' });
 
             // Create column series for tax, interest, and principal data
-            chart.column(taxData).name('Taxes').color('#e67e22');
+            chart.column(taxData).name('Taxes').color('#f1c40f');
             chart.column(interestData).name('Interest').color('#ffa502');
-            chart.column(principalData).name('Principal').color('#f1c40f');
+            chart.column(principalData).name('Principal').color('#e67e22');
 
             // Create line series for balance data
             let balanceScale = anychart.scales.linear();
@@ -259,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
             chart.xAxis().title('Year');
             chart.xAxis().labels().rotation(-45);
             chart.xAxis().labels().padding([0, 5, 5, 5]);
+            chart.xAxis().labels().fontSize(10) 
             chart.xAxis().labels().format(function () {
                 return monthData[this.index];
             });
@@ -290,5 +242,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
+}
     calculateButton.addEventListener("click", calculateEMI);
 });

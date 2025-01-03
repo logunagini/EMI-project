@@ -1,0 +1,82 @@
+
+
+.faq-section {
+    background-color: black;
+    padding: 10px 0;
+}
+
+.faq-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: orange;
+}
+.dropdown-menu:hover .dropdown-item:hover {
+    background-color: orange;
+    color: white;
+    font-size: 14px;
+  }
+  .dropdown-menu .dropdown-item {
+    font-size: 14px;
+  }
+.sub-title {
+    color: orange;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+body {
+    background-color:black;
+}
+
+.accordion-button::after {
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 2px 4px  orange;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.accordion-button:hover {
+    background-color: orange;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.accordion-body {
+    font-weight: normal;
+    background-color: #ffffff;
+    padding: 1rem  orange;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    box-shadow: 0 2px 4px  orange;
+    font-size: 14px;
+}
+
+.accordion-item {
+    border-top: 1px solid  #D74B76;
+}
+.tamil-content {
+    display: none;
+}

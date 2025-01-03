@@ -2,6 +2,7 @@
   background-color:#1c2333; 
 }
 
+
 .card-title{
   font-size: 2rem;
   font-weight: 900;
@@ -58,16 +59,45 @@
  /* Default styles for .btnmodel */
 .btnmodel {
   width: 35%;
-  padding: 5px;
+  padding: 7px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
+  font-size: 14px;
   background-color: orange;
   color:white;
 }
 
+#languageDropdown{
+  margin-top: 13px !important;
+  font-size: 14px;
+}
+.dropdown-menu:hover .dropdown-item:hover {
+  background-color: orange;
+  color: white;
+  font-size: 14px;
+}
+.dropdown-menu .dropdown-item {
+  font-size: 14px;
+}
 
-
-
+#calBtn{
+  margin-left:90% ;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: orange;
+  color:white;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-left:60% ;
+  width: 80%;
+}
+.details{
+  margin-left: 50% !important;
+}
 .btn{
 background-color: orange;
 color: white;
